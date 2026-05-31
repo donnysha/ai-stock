@@ -6,16 +6,8 @@
 #   - app.py: Streamlit Web应用主入口
 #   - pages/: 多页面应用（选股、回测等）
 #   - charts/: 图表组件
+#
+# 注意: 子模块由 app.py 按需延迟导入，__init__.py 不预加载，
+#       避免 Streamlit Cloud 上因缺失依赖（backtrader/streamlit_echarts）
+#       导致整个应用无法启动。
 # =============================================================================
-
-from .pages.stock_select import render_stock_select_page
-from .pages.backtest_page import render_backtest_page
-from .charts.kline_chart import KLineChart
-from .charts.result_charts import ResultCharts
-
-__all__ = [
-    'render_stock_select_page',   # 选股页面渲染函数
-    'render_backtest_page',       # 策略回测页面渲染函数
-    'KLineChart',                 # K线图组件
-    'ResultCharts'                # 结果图表组件
-]

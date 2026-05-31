@@ -16,6 +16,7 @@ numpy>=1.24.0
 # 可视化
 plotly>=5.18.0
 matplotlib>=3.7.0  # backtrader绘图支持
+streamlit-echarts>=1.0.0  # ECharts K线图
 
 # AI模型调用（根据需要选择）
 openai>=1.0.0          # OpenAI API
