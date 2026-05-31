@@ -61,8 +61,7 @@ def render_kline_page():
         if st.button("← 返回", type="secondary", key="back_btn"):
             prev_page = st.session_state.get('prev_page', '首页')
             st.query_params["page"] = prev_page
-            st.query_params.clear()
-            st.switch_page("app.py")
+            st.rerun()
     
     with col2:
         st.title(f"📈 {stock_name} ({stock_code}) K线走势")
