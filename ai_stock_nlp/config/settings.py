@@ -10,8 +10,8 @@
 - 云部署：通过云平台设置环境变量
 
 【环境变量】
-- DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME
-- ARK_MODEL, ARK_API_BASE, ARK_API_KEY
+- DB_HOST, DB_PORT, DB_USER, DB_PASS, DB_NAME
+- AI_MODEL, AI_API_BASE, AI_API_KEY
 - LOG_LEVEL
 """
 
@@ -39,7 +39,7 @@ DB_CONFIG = {
     'host': os.getenv('DB_HOST', ''),
     'port': int(os.getenv('DB_PORT', '3306')),
     'user': os.getenv('DB_USER', ''),
-    'password': os.getenv('DB_PASSWORD', ''),
+    'password': os.getenv('DB_PASS', ''),
     'database': os.getenv('DB_NAME', 'stock'),
     'charset': 'utf8mb4'
 }
@@ -51,12 +51,12 @@ STOCK_TABLE = 'stock_daily_full'
 # AI模型配置 - 火山引擎ARK
 # =============================================================================
 # 官方文档: https://www.volcengine.com/docs/82379/1399008
-# API Key 通过环境变量 ARK_API_KEY 注入，不提供默认值
+# API Key 通过环境变量 AI_API_KEY 注入，不提供默认值
 # 注意: model 使用的是端点ID (ep-xxx)，不是模型名称
 AI_CONFIG = {
-    'model': os.getenv('ARK_MODEL', ''),
-    'api_base': os.getenv('ARK_API_BASE', ''),
-    'api_key': os.getenv('ARK_API_KEY', ''),
+    'model': os.getenv('AI_MODEL', ''),
+    'api_base': os.getenv('AI_API_BASE', ''),
+    'api_key': os.getenv('AI_API_KEY', ''),
     'temperature': 0,  # 固定为0，确保输出稳定
     'timeout': 60
 }

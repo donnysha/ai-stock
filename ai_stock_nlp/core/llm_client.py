@@ -41,9 +41,9 @@ class LLMClient:
     def __init__(self):
         """初始化LLM客户端"""
         # 优先使用环境变量，兼容运行时设置
-        self.model = os.getenv('ARK_MODEL', AI_CONFIG['model'])
-        self.api_base = os.getenv('ARK_API_BASE', AI_CONFIG['api_base'])
-        self.api_key = os.getenv('ARK_API_KEY', AI_CONFIG.get('api_key', ''))
+        self.model = os.getenv('AI_MODEL', AI_CONFIG['model'])
+        self.api_base = os.getenv('AI_API_BASE', AI_CONFIG['api_base'])
+        self.api_key = os.getenv('AI_API_KEY', AI_CONFIG.get('api_key', ''))
         self.temperature = AI_CONFIG.get('temperature', 0)
         self.timeout = AI_CONFIG.get('timeout', 60)
         self._client = None
@@ -152,5 +152,5 @@ def is_llm_available() -> bool:
         是否可用
     """
     # 优先检查环境变量（运行时设置），其次检查配置文件
-    api_key = os.getenv('ARK_API_KEY', AI_CONFIG.get('api_key', '')).strip()
+    api_key = os.getenv('AI_API_KEY', AI_CONFIG.get('api_key', '')).strip()
     return bool(api_key)
