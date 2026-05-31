@@ -14,17 +14,21 @@
 from .stock_selector import StockSelector
 from .grid_backtester import GridBacktester
 from .profit_calculator import ProfitCalculator
-from .backtrader_engine import BacktraderEngine
 from .sql_generator import SQLGenerator, sql_generator
 from .data_fetcher import DataFetcher, get_data_fetcher
 
+# BacktraderEngine 延迟导入（避免 backtrader 在 Python 3.14 Streamlit Cloud 上启动崩溃）
+def get_backtrader_engine(*args, **kwargs):
+    from .backtrader_engine import BacktraderEngine
+    return BacktraderEngine(*args, **kwargs)
+
 __all__ = [
-    'StockSelector',       # 选股执行器
-    'GridBacktester',      # 网格回测引擎
-    'ProfitCalculator',    # 收益计算器
-    'BacktraderEngine',    # Backtrader引擎
-    'SQLGenerator',         # SQL生成器
-    'sql_generator',        # SQL生成器全局实例
-    'DataFetcher',          # 数据获取器
-    'get_data_fetcher'      # 获取数据获取器实例
+    'StockSelector',         # 选股执行器
+    'GridBacktester',        # 网格回测引擎
+    'ProfitCalculator',      # 收益计算器
+    'get_backtrader_engine', # Backtrader引擎（延迟导入）
+    'SQLGenerator',          # SQL生成器
+    'sql_generator',         # SQL生成器全局实例
+    'DataFetcher',           # 数据获取器
+    'get_data_fetcher'       # 获取数据获取器实例
 ]

@@ -38,7 +38,6 @@ from core.dispatcher import StrategyDispatcher
 from core.llm_client import get_llm_client, is_llm_available
 from data_layer.akshare_data_fetcher import akshare_fetcher
 from data_layer.market_data_cache import market_cache
-from presentation_layer.pages.backtest_page import render_backtest_page
 
 
 def go_to_kline_page(stock_code: str, stock_name: str):
@@ -117,6 +116,7 @@ def main():
     elif st.session_state.current_page == "智能选股":
         render_stock_select_page()
     elif st.session_state.current_page == "策略回测":
+        from presentation_layer.pages.backtest_page import render_backtest_page
         render_backtest_page(akshare_fetcher)
     elif st.session_state.current_page == "市场概览":
         render_market_overview_page()
