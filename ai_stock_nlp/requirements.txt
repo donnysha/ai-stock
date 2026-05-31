@@ -1,0 +1,26 @@
+# AI股票自然语言策略分析系统依赖
+
+# Web框架
+streamlit>=1.28.0
+
+# 金融数据源
+akshare>=1.13.0
+
+# 回测框架
+backtrader>=1.9.78  # 专业回测引擎
+
+# 数据处理
+pandas>=2.0.0
+numpy>=1.24.0
+
+# 可视化
+plotly>=5.18.0
+matplotlib>=3.7.0  # backtrader绘图支持
+
+# AI模型调用（根据需要选择）
+openai>=1.0.0          # OpenAI API
+# anthropic>=0.8.0     # Anthropic API（备选）
+
+# 其他工具
+python-dateutil>=2.8.0
+python-dotenv>=1.0.0       # 从 .env 加载环境变量
